@@ -36,9 +36,99 @@ const Footer = () => {
                   ABOUT XDC
                 </h4>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">History</a></li>
-                  <li><a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Disclaimer & Terms of Use</a></li>
-                  <li><a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Privacy Policy</a></li>
+                  <li>
+                    <div className="group cursor-pointer" style={{ perspective: '1000px' }}>
+                      <div className="relative w-full h-8 transition-transform duration-1000 ease-in-out" 
+                           style={{ 
+                             transformStyle: 'preserve-3d',
+                             transform: 'rotateX(0deg)'
+                           }}
+                           onMouseEnter={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(90deg)';
+                           }}
+                           onMouseLeave={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(0deg)';
+                           }}
+                      >
+                        <div className="absolute inset-0 flex items-center" 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">History</a>
+                        </div>
+                        <div className="absolute inset-0 flex items-center" 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'rotateX(90deg) translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">History</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="group cursor-pointer" style={{ perspective: '1000px' }}>
+                      <div className="relative w-full h-8 transition-transform duration-1000 ease-in-out" 
+                           style={{ 
+                             transformStyle: 'preserve-3d',
+                             transform: 'rotateX(0deg)'
+                           }}
+                           onMouseEnter={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(90deg)';
+                           }}
+                           onMouseLeave={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(0deg)';
+                           }}
+                      >
+                        <div className="absolute inset-0 flex items-center" 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Disclaimer & Terms of Use</a>
+                        </div>
+                        <div className="absolute inset-0 flex items-center" 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'rotateX(90deg) translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Disclaimer & Terms of Use</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="group cursor-pointer" style={{ perspective: '1000px' }}>
+                      <div className="relative w-full h-8 transition-transform duration-1000 ease-in-out" 
+                           style={{ 
+                             transformStyle: 'preserve-3d',
+                             transform: 'rotateX(0deg)'
+                           }}
+                           onMouseEnter={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(90deg)';
+                           }}
+                           onMouseLeave={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(0deg)';
+                           }}
+                      >
+                        <div className="absolute inset-0 flex items-center" 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Privacy Policy</a>
+                        </div>
+                        <div className="absolute inset-0 flex items-center" 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'rotateX(90deg) translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Privacy Policy</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
                 </ul>
               </div>
 
@@ -48,10 +138,130 @@ const Footer = () => {
                   RESOURCES
                 </h4>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Brand Assets</a></li>
-                  <li><a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Get in touch</a></li>
-                  <li><a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Project PR</a></li>
-                  <li><a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Support</a></li>
+                  <li>
+                    <div className="group cursor-pointer" style={{ perspective: '1000px' }}>
+                      <div className="relative w-full h-8 transition-transform duration-1000 ease-in-out" 
+                           style={{ 
+                             transformStyle: 'preserve-3d',
+                             transform: 'rotateX(0deg)'
+                           }}
+                           onMouseEnter={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(90deg)';
+                           }}
+                           onMouseLeave={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(0deg)';
+                           }}
+                      >
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Brand Assets</a>
+                        </div>
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'rotateX(90deg) translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Brand Assets</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="group cursor-pointer" style={{ perspective: '1000px' }}>
+                      <div className="relative w-full h-8 transition-transform duration-1000 ease-in-out" 
+                           style={{ 
+                             transformStyle: 'preserve-3d',
+                             transform: 'rotateX(0deg)'
+                           }}
+                           onMouseEnter={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(90deg)';
+                           }}
+                           onMouseLeave={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(0deg)';
+                           }}
+                      >
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Get in touch</a>
+                        </div>
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'rotateX(90deg) translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Get in touch</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="group cursor-pointer" style={{ perspective: '1000px' }}>
+                      <div className="relative w-full h-8 transition-transform duration-1000 ease-in-out" 
+                           style={{ 
+                             transformStyle: 'preserve-3d',
+                             transform: 'rotateX(0deg)'
+                           }}
+                           onMouseEnter={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(90deg)';
+                           }}
+                           onMouseLeave={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(0deg)';
+                           }}
+                      >
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Project PR</a>
+                        </div>
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'rotateX(90deg) translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Project PR</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="group cursor-pointer" style={{ perspective: '1000px' }}>
+                      <div className="relative w-full h-8 transition-transform duration-1000 ease-in-out" 
+                           style={{ 
+                             transformStyle: 'preserve-3d',
+                             transform: 'rotateX(0deg)'
+                           }}
+                           onMouseEnter={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(90deg)';
+                           }}
+                           onMouseLeave={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(0deg)';
+                           }}
+                      >
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Support</a>
+                        </div>
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'rotateX(90deg) translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Help Center</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
                 </ul>
               </div>
 
@@ -61,10 +271,130 @@ const Footer = () => {
                   USE XDC
                 </h4>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Ecosystem</a></li>
-                  <li><a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">XDC.dev</a></li>
-                  <li><a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">XDC Network</a></li>
-                  <li><a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Forum</a></li>
+                  <li>
+                    <div className="group cursor-pointer" style={{ perspective: '1000px' }}>
+                      <div className="relative w-full h-8 transition-transform duration-1000 ease-in-out" 
+                           style={{ 
+                             transformStyle: 'preserve-3d',
+                             transform: 'rotateX(0deg)'
+                           }}
+                           onMouseEnter={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(90deg)';
+                           }}
+                           onMouseLeave={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(0deg)';
+                           }}
+                      >
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Ecosystem</a>
+                        </div>
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'rotateX(90deg) translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">DApps</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="group cursor-pointer" style={{ perspective: '1000px' }}>
+                      <div className="relative w-full h-8 transition-transform duration-1000 ease-in-out" 
+                           style={{ 
+                             transformStyle: 'preserve-3d',
+                             transform: 'rotateX(0deg)'
+                           }}
+                           onMouseEnter={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(90deg)';
+                           }}
+                           onMouseLeave={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(0deg)';
+                           }}
+                      >
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">XDC.dev</a>
+                        </div>
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'rotateX(90deg) translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Developer Hub</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="group cursor-pointer" style={{ perspective: '1000px' }}>
+                      <div className="relative w-full h-8 transition-transform duration-1000 ease-in-out" 
+                           style={{ 
+                             transformStyle: 'preserve-3d',
+                             transform: 'rotateX(0deg)'
+                           }}
+                           onMouseEnter={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(90deg)';
+                           }}
+                           onMouseLeave={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(0deg)';
+                           }}
+                      >
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">XDC Network</a>
+                        </div>
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'rotateX(90deg) translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Blockchain Explorer</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="group cursor-pointer" style={{ perspective: '1000px' }}>
+                      <div className="relative w-full h-8 transition-transform duration-1000 ease-in-out" 
+                           style={{ 
+                             transformStyle: 'preserve-3d',
+                             transform: 'rotateX(0deg)'
+                           }}
+                           onMouseEnter={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(90deg)';
+                           }}
+                           onMouseLeave={(e) => {
+                             e.currentTarget.style.transform = 'rotateX(0deg)';
+                           }}
+                      >
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Forum</a>
+                        </div>
+                        <div className="absolute inset-0 flex items-center " 
+                             style={{ 
+                               backfaceVisibility: 'hidden',
+                               transform: 'rotateX(90deg) translateZ(16px)'
+                             }}>
+                          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors duration-300">Forum</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>

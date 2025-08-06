@@ -1,7 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const PoweredBySection = () => {
   const [rotationStates, setRotationStates] = useState([0, 0, 0, 0, 0]);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  // Scroll animation observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.3
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   // Company logos data with multiple faces for cube effect
   const companies = [
@@ -90,11 +116,13 @@ const PoweredBySection = () => {
   }, [companies.length]);
 
   return (
-    <section className="relative py-20 px-6 bg-white">
+    <section ref={sectionRef} className="relative py-20 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-light text-gray-900 mb-4">
+          <h2 className={`text-5xl lg:text-6xl font-light text-gray-900 mb-4 transform transition-all duration-1000 ${
+            isVisible ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'
+          }`}>
             Powered by XDC
           </h2>
         </div>

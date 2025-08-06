@@ -1,24 +1,40 @@
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 import blockImage from '../assets/block.png';
 
 const BlockchainLearningSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   return (
-    <section className="py-16 px-6 bg-white relative">
+    <section ref={sectionRef} className="py-16 px-6 bg-white relative">
       <div className="max-w-7xl mx-auto">
-        {/* Top Right Navigation */}
-        <div className="absolute top-8 right-8 flex items-center space-x-4 z-10">
-          <button className="flex items-center justify-center w-8 h-8 rounded-full border border-gray-400 hover:border-gray-600 transition-colors duration-300">
-            <ChevronLeft className="w-4 h-4 text-gray-600" />
-          </button>
-          <span className="text-sm font-medium text-gray-600">1 / 4</span>
-          <button className="flex items-center justify-center w-8 h-8 rounded-full border border-gray-400 hover:border-gray-600 transition-colors duration-300">
-            <ChevronRight className="w-4 h-4 text-gray-600" />
-          </button>
-        </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Section - Visual Graphic */}
-          <div className="relative h-[600px] lg:h-[700px] overflow-hidden rounded-lg">
+          <div className={`relative h-[600px] lg:h-[700px] overflow-hidden rounded-lg transition-all duration-1000 ${
+            isVisible 
+              ? 'transform translate-y-0 opacity-100' 
+              : 'transform translate-y-20 opacity-0'
+          }`}>
             {/* Background with digital particles effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-teal-900 via-cyan-800 to-teal-800">
               {/* Digital particles/noise effect */}
@@ -52,10 +68,18 @@ const BlockchainLearningSection = () => {
           <div className="space-y-8">
             {/* Main Heading */}
             <div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-2">
+              <h2 className={`text-4xl lg:text-5xl font-bold text-gray-900 mb-2 transition-all duration-700 ${
+                isVisible 
+                  ? 'transform translate-x-0 opacity-100' 
+                  : 'transform translate-x-20 opacity-0'
+              }`}>
                 Blockchain Learning
               </h2>
-              <p className="text-xl lg:text-2xl italic text-gray-700">
+              <p className={`text-xl lg:text-2xl italic text-gray-700 transition-all duration-700 delay-200 ${
+                isVisible 
+                  ? 'transform translate-x-0 opacity-100' 
+                  : 'transform translate-x-20 opacity-0'
+              }`}>
                 Open for Everyone
               </p>
             </div>
@@ -69,16 +93,28 @@ const BlockchainLearningSection = () => {
             <div className="space-y-4">
               <div className="w-full h-px bg-gray-300"></div>
               
-              <button className="group flex items-center space-x-3 text-gray-900 hover:text-cyan-600 transition-colors duration-300">
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                <span className="text-lg font-medium">What is a blockchain?</span>
+              <button className="group flex items-center space-x-3 text-gray-900 hover:text-cyan-600 transition-colors duration-300 relative overflow-hidden w-80">
+                <span className="flex items-center space-x-3">
+                  <span className="transform transition-transform duration-300 group-hover:translate-x-48">
+                    <ArrowRight className="w-5 h-5" />
+                  </span>
+                  <span className="transform transition-transform duration-300 group-hover:-translate-x-8 text-lg font-medium">
+                    What is a blockchain?
+                  </span>
+                </span>
               </button>
               
               <div className="w-full h-px bg-gray-300"></div>
               
-              <button className="group flex items-center space-x-3 text-gray-900 hover:text-cyan-600 transition-colors duration-300">
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                <span className="text-lg font-medium">Explore the Network</span>
+              <button className="group flex items-center space-x-3 text-gray-900 hover:text-cyan-600 transition-colors duration-300 relative overflow-hidden w-80">
+                <span className="flex items-center space-x-3">
+                  <span className="transform transition-transform duration-300 group-hover:translate-x-48">
+                    <ArrowRight className="w-5 h-5" />
+                  </span>
+                  <span className="transform transition-transform duration-300 group-hover:-translate-x-8 text-lg font-medium">
+                    Explore the Network
+                  </span>
+                </span>
               </button>
             </div>
           </div>

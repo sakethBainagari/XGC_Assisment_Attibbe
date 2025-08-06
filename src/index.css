@@ -140,4 +140,15 @@ All colors MUST be HSL.
   .animate-drift {
     animation: drift 8s ease-in-out infinite;
   }
+
+  /* Custom text selection styling */
+  .custom-selection::selection {
+    background-color: black !important;
+    color: white !important;
+  }
+  
+  .custom-selection::-moz-selection {
+    background-color: black !important;
+    color: white !important;
+  }
 }

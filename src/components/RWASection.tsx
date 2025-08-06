@@ -1,8 +1,35 @@
 import deerImage from '../assets/deer .png';
+import { useEffect, useRef, useState } from 'react';
 
 const RWASection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.3
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="relative min-h-screen px-6 py-24 overflow-hidden bg-fixed" 
+    <section ref={sectionRef} className="relative min-h-screen px-6 py-24 overflow-hidden bg-fixed" 
              style={{
                backgroundImage: `url(${deerImage})`,
                backgroundSize: 'cover',
@@ -41,18 +68,24 @@ const RWASection = () => {
           {/* Left Column - Content */}
           <div className="space-y-8">
             {/* Main Heading */}
-            <h1 className="text-5xl lg:text-6xl font-light text-white leading-tight">
+            <h1 className={`text-5xl lg:text-6xl font-light text-white leading-tight transform transition-all duration-1000 ${
+              isVisible ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'
+            }`}>
               The RWA and trade finance blockchain is steadily building for lasting success
             </h1>
 
             {/* Subheading */}
             <div className="space-y-4">
-              <h2 className="text-2xl lg:text-3xl font-light text-white opacity-90">
+              <h2 className={`text-2xl lg:text-3xl font-light text-white opacity-90 transform transition-all duration-1000 delay-300 ${
+                isVisible ? 'translate-x-0 opacity-90' : '-translate-x-20 opacity-0'
+              }`}>
                 XDC Network Caps Six Years of Live Mainnet
               </h2>
               
               {/* Divider line */}
-              <div className="w-16 h-0.5 bg-white opacity-60"></div>
+              <div className={`w-16 h-0.5 bg-white opacity-60 transform transition-all duration-1000 delay-500 ${
+                isVisible ? 'translate-x-0 opacity-60' : '-translate-x-20 opacity-0'
+              }`}></div>
             </div>
 
             {/* Read Now Button */}

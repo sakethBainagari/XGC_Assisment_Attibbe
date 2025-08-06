@@ -1,10 +1,52 @@
 import { Button } from "./ui/button";
+import { useEffect, useRef, useState } from 'react';
 
 const HeroSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [showBlackBg, setShowBlackBg] = useState(false);
+  const [showHeader, setShowHeader] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+  const [showText, setShowText] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          
+          // Animation sequence - made faster
+          setTimeout(() => setShowBlackBg(true), 300); // Black background after 300ms
+          setTimeout(() => setShowButton(true), 1000);  // Button after 1s
+          setTimeout(() => setShowHeader(true), 1800);  // Header after 1.8s (after button)
+          setTimeout(() => setShowText(true), 2500);    // Text after 2.5s
+        }
+      },
+      {
+        threshold: 0.1
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-green-200">
+      {/* Black background that slides up from bottom */}
+      <div className={`absolute inset-0 bg-black transform transition-transform duration-1000 ease-out ${
+        showBlackBg ? 'translate-y-0' : 'translate-y-full'
+      }`}></div>
+
       {/* Background decorative elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-5">
         {/* Animated dots */}
         <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-primary rounded-full animate-pulse"></div>
         <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-primary rounded-full animate-pulse delay-1000"></div>
@@ -27,24 +69,54 @@ const HeroSection = () => {
       </div>
 
       <div className="max-w-6xl mx-auto text-center relative z-10">
-        {/* Main Heading */}
-        <h1 className="text-6xl md:text-8xl font-light text-foreground mb-12 leading-tight">
+        {/* Main Heading - comes from bottom after button */}
+        <h1 className={`mb-12 custom-selection transform transition-all duration-1000 ${
+          showHeader ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+        }`}
+            style={{
+              fontFamily: '"Editorial New", serif',
+              fontWeight: 400,
+              fontSize: '128px',
+              lineHeight: '128px',
+              fontStyle: 'normal',
+              color: 'rgb(159, 243, 255)'
+            }}>
           Success Depends on
           <br />
-          <span className="text-primary">Your Network</span>
+          <span style={{ color: 'rgb(159, 243, 255)' }}>Your Network</span>
         </h1>
 
-        {/* Subtitle */}
-        <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
+        {/* Subtitle - comes from bottom */}
+        <p className={`text-xl md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed custom-selection transform transition-all duration-1000 ${
+          showText ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+        }`}>
           A fast and secure blockchain that supports trade finance, real-world asset (RWA) tokenization, and enterprise applications.
         </p>
 
-        {/* CTA Button */}
+        {/* CTA Button - comes from bottom */}
         <Button 
           size="lg" 
-          className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 px-8 py-4 text-lg font-medium"
+          className={`group bg-transparent border-2 hover:bg-transparent transition-all duration-300 px-8 py-4 relative overflow-hidden transform duration-1000 ${
+            showButton ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+          }`}
+          style={{
+            borderColor: 'rgb(159, 243, 255)',
+            color: 'rgb(159, 243, 255)',
+            fontFamily: '"Editorial New","Untitled Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            fontWeight: 400,
+            fontSize: '21px',
+            lineHeight: '21px',
+            fontStyle: 'normal'
+          }}
         >
-          → Get started with XDC
+          <span className="flex items-center space-x-3">
+            <span className="transform transition-transform duration-300 group-hover:translate-x-48">
+              →
+            </span>
+            <span className="transform transition-transform duration-300 group-hover:-translate-x-8">
+              Get started with XDC
+            </span>
+          </span>
         </Button>
       </div>
     </section>
